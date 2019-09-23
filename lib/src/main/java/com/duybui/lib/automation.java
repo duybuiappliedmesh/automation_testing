@@ -47,11 +47,6 @@ public class automation {
         waitElementShowingById("android:id/button1");
     }
 
-    public void testClickFloatingActionButton() {
-        MobileElement el1 = driver.findElementById("com.appliedmesh.getkaki.dev:id/fab");
-        el1.click();
-    }
-
     @Test
     public void testPromoCodeFail() {
         testPromoCode("a", "Invalid code");
@@ -127,7 +122,7 @@ public class automation {
         MobileElement el9 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/btn_checkout");
         el9.click();
-        MobileElement el10 = (MobileElement) driver.findElementById(
+        MobileElement el10 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/btn_order_now");
         el10.click();
         MobileElement el11 = driver.findElementByXPath(
@@ -168,6 +163,7 @@ public class automation {
         el23.click();
 
         MobileElement el24 = driver.findElementByAccessibilityId("Proceed");
+        el24.click();
         //wait 10 seconds to fill OTP
         Thread.sleep(10000);
 
@@ -180,7 +176,6 @@ public class automation {
         MobileElement el27 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/ll_add_to_cart");
         el27.click();
-        MobileElement el28 = driver.findElementById("otp-input0");
 
         //wait 20 seconds to fill OTP
         Thread.sleep(20000);
@@ -236,7 +231,7 @@ public class automation {
         assertEquals(title.getText(), "Home");
     }
 
-    public void testPromoCode(String promoCode, String expectedResult) {
+    private void testPromoCode(String promoCode, String expectedResult) {
         //close Terms and conditions
         MobileElement elTerms = driver.findElementById("android:id/button1");
         elTerms.click();
@@ -276,17 +271,17 @@ public class automation {
         MobileElement elTerms = driver.findElementById("android:id/button1");
         elTerms.click();
 
-        MobileElement el1 = (MobileElement) driver.findElementById(
+        MobileElement el1 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/iv_search");
         el1.click();
-        MobileElement el2 = (MobileElement) driver.findElementById(
+        MobileElement el2 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/search_field");
         el2.sendKeys("miam miam");
 
-        MobileElement el3 = (MobileElement) driver.findElementById(
+        MobileElement el3 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/cbSelectAll");
         el3.click();
-        MobileElement el4 = (MobileElement) driver.findElementById(
+        MobileElement el4 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/btnAction");
         el4.click();
 
@@ -299,7 +294,7 @@ public class automation {
         assertEquals(title.getText(), "Home");
     }
 
-    public void waitElementShowingById(String id) {
+    private void waitElementShowingById(String id) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
@@ -310,21 +305,21 @@ public class automation {
 
     @Test
     public void testAddOutletByMerchant() throws InterruptedException {
-        MobileElement el1 = (MobileElement) driver.findElementById("android:id/button1");
+        MobileElement el1 = driver.findElementById("android:id/button1");
         el1.click();
-        MobileElement el2 = (MobileElement) driver.findElementById(
+        MobileElement el2 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/fab");
         el2.click();
-        MobileElement el3 = (MobileElement) driver.findElementById(
+        MobileElement el3 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/ll_add_outlet_container");
         el3.click();
-        MobileElement el4 = (MobileElement) driver.findElementByXPath(
+        MobileElement el4 = driver.findElementByXPath(
                 "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.ListView/android.widget.LinearLayout[1]");
         el4.click();
-        MobileElement el5 = (MobileElement) driver.findElementById(
+        MobileElement el5 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/cbSelectAll");
         el5.click();
-        MobileElement el6 = (MobileElement) driver.findElementById(
+        MobileElement el6 = driver.findElementById(
                 "com.appliedmesh.getkaki.dev:id/btnAction");
         el6.click();
 
